@@ -168,19 +168,6 @@ def mostrar_resumen(tabla: pd.DataFrame, destino: Path) -> None:
     print(f"Archivo: {destino}")
 
 
-def mostrar_efecto_final() -> None:
-    """Abre la simulación visual; un fallo no invalida el reporte guardado."""
-    if "--sin-efecto" in sys.argv:
-        return
-    print("Abriendo simulación visual de broma (Esc para cerrar).")
-    try:
-        from br_rn import main as mostrar_simulacion
-
-        mostrar_simulacion()
-    except Exception as error:
-        print(f"No se pudo mostrar la simulación: {error}")
-
-
 def main() -> int:
     """Coordina la carga y exportación e informa los errores."""
     print("Reporte de notas | Escala: 0 a 10 | Aprobación: promedio >= 6")
@@ -194,7 +181,6 @@ def main() -> int:
                 return 0
         exportar_excel(tabla, ARCHIVO_SALIDA)
         mostrar_resumen(tabla, ARCHIVO_SALIDA)
-        mostrar_efecto_final()
     except (KeyboardInterrupt, EOFError):
         print("\nCarga interrumpida. No se generó un nuevo reporte.")
         return 1
