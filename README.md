@@ -105,21 +105,3 @@ terminación forzada de su proceso.
 La carpeta `.venv` se crea localmente y no se distribuye: sus rutas dependen de
 cada equipo. El programa devuelve código 0 al finalizar correctamente y 1 ante
 un error o una carga interrumpida.
-
-
-## Efecto visual al terminar
-
-Después de guardar el Excel y mostrar el resumen, se abre automáticamente una
-simulación de alerta con barra de progreso. A los siete segundos revela la
-broma. Se puede cerrar con Escape, la X o el botón Close en cualquier momento.
-No modifica archivos ni notas ni accede a la red. No aparece al cancelar la
-carga o si falla el guardado. Requiere tkinter; si no está disponible, el reporte
-ya generado se conserva.
-
-El módulo se llama `br_rn.py`. Para ejecutar el programa sin el efecto:
-
-```console
-python reporte_notas.py --sin-efecto
-```
-
-También se puede abrir por separado con `python br_rn.py`.
